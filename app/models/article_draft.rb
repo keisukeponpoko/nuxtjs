@@ -1,0 +1,2 @@
+class ArticleDraft < ApplicationRecord
+end
