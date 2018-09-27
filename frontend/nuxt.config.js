@@ -33,15 +33,22 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: ['element-ui']
   },
+  plugins: [
+    '~plugins/element-ui'
+  ],
+  css: [
+    '@/assets/css/base.css',
+    'element-ui/lib/theme-chalk/index.css'
+  ],
   modules: [
-    // この行を追加して有効化
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/axios'
   ],
 
   vuetify: {
-    // Vuetify の設定はここに書く
     theme: {
       primary: '#3f51b5',
       secondary: '#b0bec5',
@@ -49,4 +56,4 @@ module.exports = {
       error: '#b71c1c'
     }
   }
-}
+};

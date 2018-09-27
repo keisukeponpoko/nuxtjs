@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      <span class="headline">最新の状態更新</span>
+      <span class="headline">記事一覧</span>
     </v-card-title>
     <v-card-text>
       <v-data-table
@@ -14,14 +14,16 @@
             <span slot="activator">
               {{ props.header.text }}
             </span>
+            <span>
+              {{ props.header.text }}
+            </span>
           </v-tooltip>
         </template>
         <template slot="items" slot-scope="props">
-          <td>{{ props.item.date }}</td>
-          <td class="text-xs-right">{{ props.item.article }}</td>
+          <td><a :href="'/admin/article/' + props.item.id">{{ props.item.id }}</a></td>
+          <td class="text-xs-right">{{ props.item.name }}</td>
           <td class="text-xs-right">{{ props.item.worker }}</td>
           <td class="text-xs-right">{{ props.item.status }}</td>
-          <td class="text-xs-right"><a href="/admin/diff"><v-icon>spellcheck</v-icon></a></td>
         </template>
       </v-data-table>
     </v-card-text>
@@ -34,36 +36,29 @@
     data () {
       return {
         headers: [
-          { text: 'ステータス変更日時', value: 'date' },
-          { text: '記事内容', value: 'article' },
+          { text: 'id', value: 'id' },
+          { text: 'ネタ名', value: 'name' },
           { text: 'ワーカー', value: 'worker' },
           { text: 'ステータス', value: 'status' },
-          { text: '差分確認', value: 'diff' },
         ],
         desserts: [
           {
+            id: 1,
+            name: 'DIY',
             worker: '太郎',
-            date: '2018-09-01',
-            status: '初稿',
-            article: 'DIY'
+            status: '校正中',
           },
           {
+            id: 2,
+            name: '収納',
+            worker: '太郎',
+            status: '校正中',
+          },
+          {
+            id: 3,
+            name: 'インテリア',
             worker: '花子',
-            date: '2018-09-04',
-            status: '校正',
-            article: 'ネタのタイトル'
-          },
-          {
-            worker: '太郎',
-            date: '2018-09-16',
-            status: '初稿',
-            article: '記事のタイトル'
-          },
-          {
-            worker: '与四郎',
-            date: '2018-09-22',
-            status: '校正',
-            article: '収納'
+            status: '校正中',
           }
         ]
       }

@@ -1,9 +1,11 @@
 class TopicsController < ApplicationController
+  protect_from_forgery with: :null_session
+
   def index
     limit = 20
     page = params[:page] || 1
     topics = Topic.includes([:article, :worker_desire_topic]).offset((page - 1) * limit).limit(limit)
-    render json: format(topics)
+    render json: list_format(topics)
   end
 
   def show
@@ -16,11 +18,15 @@ class TopicsController < ApplicationController
   end
 
   def create
-    topic = Topic.create(params)
+    parameter = params.require(:params).permit(
+      :article_type, :category, :comment, :description, :idea, :rank, :sub_category, :title
+    )
+
+    topic = Topic.create(parameter)
     if topic.save
-      render json: true
+      render json: format(topic)
     else
-      render json: false
+      render json: nil
     end
   end
 
@@ -30,12 +36,16 @@ class TopicsController < ApplicationController
   end
 
   def update
+    parameter = params.require(:params).permit(
+        :article_type, :category, :comment, :description, :idea, :rank, :sub_category, :title
+    )
+
     topic = Topic.find(params[:id])
 
-    if topic.update(params)
-      render json: true
+    if topic.update(parameter)
+      render json: format(topic)
     else
-      render json: false
+      render json: nil
     end
   end
 
@@ -47,14 +57,18 @@ class TopicsController < ApplicationController
 
   private
 
-  def format(topics)
-    topics.map do |topic|
-      data = topic.attributes
-      data[:worker_id] = topic.article.nil? ? nil : topic.article[:worker_id]
-      data[:article_id] = topic.article.nil? ? nil : topic.article[:id]
-      data[:workers] = topic.worker_desire_topic.map(&:worker_id)
+  def format(topic)
+    data = topic.attributes
+    data[:worker_id] = topic.article.nil? ? nil : topic.article[:worker_id]
+    data[:article_id] = topic.article.nil? ? nil : topic.article[:id]
+    data[:workers] = topic.worker_desire_topic.map(&:worker_id)
 
-      data
+    data
+  end
+
+  def list_format(topics)
+    topics.map do |topic|
+      format(topic)
     end
   end
 end
