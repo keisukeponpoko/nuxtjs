@@ -30,6 +30,7 @@
 
 <script>
   export default {
+    layout: 'admin',
     data () {
       return {
         headers: [
@@ -40,24 +41,29 @@
         ],
         desserts: [
           {
+            worker: '管理者',
+            date: '2018-09-01',
+            status: '担当設定',
+          },
+          {
             worker: '太郎',
             date: '2018-09-01',
-            status: '初稿',
+            status: '原稿提出',
           },
           {
             worker: '花子',
             date: '2018-09-04',
-            status: '校正',
+            status: '校正完了',
           },
           {
             worker: '太郎',
             date: '2018-09-16',
-            status: '初稿',
+            status: '原稿提出',
           },
           {
             worker: '与四郎',
             date: '2018-09-22',
-            status: '校正',
+            status: '校正完了',
           }
         ]
       }

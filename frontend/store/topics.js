@@ -34,5 +34,11 @@ export const mutations = {
   },
   update (state, {topic, index}) {
     Vue.set(state.list, index, topic)
+  },
+  updateWorker (state, index) {
+    const topic = state.list[index]
+    topic.worker_id = 2
+    topic.article_id = 2
+    Vue.set(state.list, index, topic)
   }
 }

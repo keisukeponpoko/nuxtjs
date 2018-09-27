@@ -76,8 +76,25 @@
           <td class="text-xs-right">{{ props.item.rank }}</td>
           <td class="text-xs-right">{{ props.item.description }}</td>
           <td class="text-xs-right">{{ props.item.comment }}</td>
-          <td class="text-xs-right">{{ props.item.article_id }}</td>
-          <td class="text-xs-right"><a :href="'/admin/worker/' + props.item.worker_id">{{ props.item.worker_id }}</a></td>
+          <td class="text-xs-right"><a :href="'/admin/article/' + props.item.article_id">{{ props.item.article_id }}</a></td>
+          <td class="text-xs-right">
+            <v-edit-dialog
+              large
+              lazy
+              persistent
+              @save="saveWorkerId(props.item)"
+            >
+              <div>{{ props.item.worker_id }}</div>
+              <div slot="input" class="mt-3 title">ワーカーを設定する</div>
+              <v-text-field
+                slot="input"
+                label="Edit"
+                single-line
+                counter
+                autofocus
+              ></v-text-field>
+            </v-edit-dialog>
+          </td>
           <td class="text-xs-right">{{ props.item.workers }}</td>
           <td class="justify-center layout px-0">
             <v-icon
@@ -96,6 +113,7 @@
 
 <script>
   export default {
+    layout: 'admin',
     computed: {
       topics () { return this.$store.state.topics.list },
       formTitle () {
@@ -103,6 +121,7 @@
       }
     },
     data: () => ({
+      editWorkerId: '',
       search: '',
       dialog: false,
       headers: [
@@ -175,6 +194,10 @@
           await this.$store.dispatch('topics/store', {params: this.editedItem});
         }
         this.close()
+      },
+
+      saveWorkerId (item) {
+        this.$store.commit('topics/updateWorker', this.topics.indexOf(item))
       }
     }
   }

@@ -41,7 +41,8 @@ module.exports = {
   ],
   css: [
     '@/assets/css/base.css',
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    'diff2html/dist/diff2html.min.css'
   ],
   modules: [
     '@nuxtjs/vuetify',

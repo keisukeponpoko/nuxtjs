@@ -16,33 +16,23 @@
             </v-list-tile-content>
           </v-list-tile>
         </router-link>
-        <router-link to="/admin">
-          <v-list-tile>
-            <v-list-tile-action>
-              <v-icon>people</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>管理者用ページ</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </router-link>
         <router-link to="/editor">
           <v-list-tile>
             <v-list-tile-action>
-              <v-icon>people</v-icon>
+              <v-icon>account_circle</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>書き手さんページ</v-list-tile-title>
+              <v-list-tile-title>書き手さんTOP</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </router-link>
-        <router-link to="/checker">
+        <router-link to="/editor/topic">
           <v-list-tile>
             <v-list-tile-action>
-              <v-icon>people</v-icon>
+              <v-icon>highlight</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>校正さんページ</v-list-tile-title>
+              <v-list-tile-title>ネタ一覧</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </router-link>
@@ -50,7 +40,7 @@
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>記事管理ツール</v-toolbar-title>
+      <v-toolbar-title>書き手さんページ</v-toolbar-title>
     </v-toolbar>
     <v-content class="content">
       <v-container fluid fill-height>

@@ -190,7 +190,7 @@
 
 
   export default {
-    layout: 'admin',
+    layout: 'checker',
     computed: {
       html() {
         const unifiedDiff = jsdiff.createPatch("DIYの記事", oldArticle, newArticle);

@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      <span class="headline">記事一覧</span>
+      <span class="headline">校正中記事一覧</span>
     </v-card-title>
     <v-card-text>
       <v-data-table
@@ -14,16 +14,13 @@
             <span slot="activator">
               {{ props.header.text }}
             </span>
-            <span>
-              {{ props.header.text }}
-            </span>
           </v-tooltip>
         </template>
         <template slot="items" slot-scope="props">
-          <td><a :href="'/admin/article/' + props.item.id">{{ props.item.id }}</a></td>
-          <td class="text-xs-right">{{ props.item.name }}</td>
-          <td class="text-xs-right">{{ props.item.worker }}</td>
+          <td>{{ props.item.date }}</td>
+          <td class="text-xs-right">{{ props.item.article }}</td>
           <td class="text-xs-right">{{ props.item.status }}</td>
+          <td class="text-xs-right"><a href="/checker/diff"><v-icon>spellcheck</v-icon></a></td>
         </template>
       </v-data-table>
     </v-card-text>
@@ -33,33 +30,35 @@
 
 <script>
   export default {
-    layout: 'admin',
+    layout: 'checker',
     data () {
       return {
         headers: [
-          { text: 'id', value: 'id' },
-          { text: 'ネタ名', value: 'name' },
-          { text: 'ワーカー', value: 'worker' },
+          { text: 'ステータス変更日時', value: 'date' },
+          { text: '記事内容', value: 'article' },
           { text: 'ステータス', value: 'status' },
+          { text: '差分確認', value: 'diff' },
         ],
         desserts: [
           {
-            id: 1,
-            name: 'DIY',
-            worker: '太郎',
+            date: '2018-09-01',
             status: '校正中',
+            article: 'DIY'
           },
           {
-            id: 2,
-            name: '収納',
-            worker: '太郎',
+            date: '2018-09-04',
             status: '校正中',
+            article: 'ネタのタイトル'
           },
           {
-            id: 3,
-            name: 'インテリア',
-            worker: '花子',
+            date: '2018-09-16',
             status: '校正中',
+            article: '記事のタイトル'
+          },
+          {
+            date: '2018-09-22',
+            status: '校正中',
+            article: '収納'
           }
         ]
       }
