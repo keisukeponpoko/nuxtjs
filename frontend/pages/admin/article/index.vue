@@ -20,7 +20,11 @@
           </v-tooltip>
         </template>
         <template slot="items" slot-scope="props">
-          <td><a :href="'/admin/article/' + props.item.id">{{ props.item.id }}</a></td>
+          <td>
+            <router-link :to="{path: '/admin/article/' + props.item.id}">
+              {{ props.item.id }}
+            </router-link>
+          </td>
           <td class="text-xs-right">{{ props.item.name }}</td>
           <td class="text-xs-right">{{ props.item.worker }}</td>
           <td class="text-xs-right">{{ props.item.status }}</td>

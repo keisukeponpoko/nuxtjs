@@ -32,10 +32,10 @@
           color="grey lighten-4"
           height="200px"
         ><v-card-text class="body-2">
-          1. <a href="/admin/topic">管理者用ネタシート</a>に管理者がネタを追加する。<br />
-          2. <a href="/editor/topic">書き手さん用ネタシート</a>で書き手さんが担当したいネタを選ぶ。<br />
-          3. あるいは、<a href="/editor/topic">書き手さん用ネタシート</a>で書き手さんがネタを追加する？<br />
-          4. <a href="/admin/topic">管理者用ネタシート</a>で、管理者がネタを書き手さんに振り分ける。
+          1. <router-link to="/admin/topic">管理者用ネタシート</router-link>に管理者がネタを追加する。<br />
+          2. <router-link to="/editor/topic">書き手さん用ネタシート</router-link>で書き手さんが担当したいネタを選ぶ。<br />
+          3. あるいは、<router-link to="/editor/topic">書き手さん用ネタシート</router-link>で書き手さんがネタを追加する？<br />
+          4. <router-link to="/admin/topic">管理者用ネタシート</router-link>で、管理者がネタを書き手さんに振り分ける。
         </v-card-text></v-card>
 
         <v-btn
@@ -52,7 +52,7 @@
           color="grey lighten-4"
           height="200px"
         ><v-card-text class="body-2">
-          1. <a href="/editor">書き手さんページ</a>を見て、そこにある作業中の記事を書き手さんが書いて、校正に回す
+          1. <router-link to="/editor">書き手さんページ</router-link>を見て、そこにある作業中の記事を書き手さんが書いて、校正に回す
         </v-card-text></v-card>
 
         <v-btn
@@ -71,8 +71,8 @@
           color="grey lighten-4"
           height="200px"
         ><v-card-text class="body-2">
-          1. <a href="/checker">校正さんページ</a>を見て、そこにある校正中の記事を校正さんが校正して、確認に回す<br />
-          2. <a href="/admin">管理者用ページ</a>を見て、校正の修正点を、書き手さんに伝える
+          1. <router-link to="/checker">校正さんページ</router-link>を見て、そこにある校正中の記事を校正さんが校正して、確認に回す<br />
+          2. <router-link to="/admin">管理者用ページ</router-link>を見て、校正の修正点を、書き手さんに伝える
         </v-card-text></v-card>
 
         <v-btn
@@ -91,7 +91,7 @@
           color="grey lighten-4"
           height="200px"
         ><v-card-text class="body-2">
-          1. <a href="/editor">書き手さんページ</a>を見て、そこにある校正済みの記事を書き手さんが修正して、校正に回す<br />
+          1. <router-link to="/editor">書き手さんページ</router-link>を見て、そこにある校正済みの記事を書き手さんが修正して、校正に回す<br />
           2. これらを繰り返す
         </v-card-text></v-card>
 
@@ -111,7 +111,7 @@
           color="grey lighten-4"
           height="200px"
         ><v-card-text class="body-2">
-          1. <a href="/admin">管理者用ページ</a>を見て、完成した記事を公開する準備する
+          1. <router-link to="/admin">管理者用ページ</router-link>を見て、完成した記事を公開する準備する
         </v-card-text></v-card>
 
         <v-btn

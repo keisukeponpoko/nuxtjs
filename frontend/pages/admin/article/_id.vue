@@ -20,7 +20,7 @@
           <td>{{ props.item.date }}</td>
           <td class="text-xs-right">{{ props.item.worker }}</td>
           <td class="text-xs-right">{{ props.item.status }}</td>
-          <td class="text-xs-right"><a href="/admin/diff"><v-icon>spellcheck</v-icon></a></td>
+          <td class="text-xs-right"><router-link to="/admin/diff"><v-icon>spellcheck</v-icon></router-link></td>
         </template>
       </v-data-table>
     </v-card-text>

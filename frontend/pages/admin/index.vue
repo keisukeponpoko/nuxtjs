@@ -18,11 +18,11 @@
             </v-tooltip>
           </template>
           <template slot="items" slot-scope="props">
-            <td><a href="admin/article/1">{{ props.item.date }}</a></td>
+            <td><router-link to="admin/article/1">{{ props.item.date }}</router-link></td>
             <td class="text-xs-right">{{ props.item.article }}</td>
             <td class="text-xs-right">{{ props.item.worker }}</td>
             <td class="text-xs-right">{{ props.item.status }}</td>
-            <td class="text-xs-right"><a href="/admin/diff"><v-icon>spellcheck</v-icon></a></td>
+            <td class="text-xs-right"><router-link to="/admin/diff"><v-icon>spellcheck</v-icon></router-link></td>
             <td class="text-xs-right">
               <v-btn color="success">校正完了へ</v-btn>
               <v-btn color="error">差し戻し</v-btn>
@@ -54,7 +54,7 @@
             <td class="text-xs-right">{{ props.item.article }}</td>
             <td class="text-xs-right">{{ props.item.worker }}</td>
             <td class="text-xs-right">{{ props.item.status }}</td>
-            <td class="text-xs-right"><a href="/admin/diff"><v-icon>spellcheck</v-icon></a></td>
+            <td class="text-xs-right"><router-link to="/admin/diff"><v-icon>spellcheck</v-icon></router-link></td>
             <td class="text-xs-right">
               <v-btn color="success">公開へ</v-btn>
               <v-btn color="error">差し戻し</v-btn>
@@ -86,7 +86,7 @@
             <td class="text-xs-right">{{ props.item.article }}</td>
             <td class="text-xs-right">{{ props.item.worker }}</td>
             <td class="text-xs-right">{{ props.item.status }}</td>
-            <td class="text-xs-right"><a href="/admin/diff"><v-icon>spellcheck</v-icon></a></td>
+            <td class="text-xs-right"><router-link to="/admin/diff"><v-icon>spellcheck</v-icon></router-link></td>
             <td class="text-xs-right"><v-btn color="success">校正中へ</v-btn></td>
           </template>
         </v-data-table>

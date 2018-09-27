@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 作った目的
+Nuxt&vuetifyを使って、結構多めのページがあるWEBサイト作ってみたかった。
 
-Things you may want to cover:
+## 概要
+Routingとかレンダリングは、NuxtJSに任せています。
+RailsはAPIサーバとして一部利用してます。
 
-* Ruby version
+## 確認方法
 
-* System dependencies
+```
+# Rails起動
+$ bundle install --path vendor/bundle --jobs=4
+$ bundle exec rails server -e development
+```
 
-* Configuration
+```
+# Nuxt起動
+$ cd frontend
+$ yarn install
+$ yarn run dev
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+これで、
+http://localhost:3333
+を見れば確認できるはず！

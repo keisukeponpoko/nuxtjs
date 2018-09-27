@@ -33,15 +33,10 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    },
-    vendor: ['element-ui']
+    }
   },
-  plugins: [
-    '~plugins/element-ui'
-  ],
   css: [
     '@/assets/css/base.css',
-    'element-ui/lib/theme-chalk/index.css',
     'diff2html/dist/diff2html.min.css'
   ],
   modules: [

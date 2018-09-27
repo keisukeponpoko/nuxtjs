@@ -76,7 +76,11 @@
           <td class="text-xs-right">{{ props.item.rank }}</td>
           <td class="text-xs-right">{{ props.item.description }}</td>
           <td class="text-xs-right">{{ props.item.comment }}</td>
-          <td class="text-xs-right"><a :href="'/admin/article/' + props.item.article_id">{{ props.item.article_id }}</a></td>
+          <td class="text-xs-right">
+            <router-link :to="{path: '/admin/article/' + props.item.article_id}">
+              {{ props.item.article_id }}
+            </router-link>
+          </td>
           <td class="text-xs-right">
             <v-edit-dialog
               large
